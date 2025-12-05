@@ -915,14 +915,21 @@ p {
 }
 
 .localeSelector select {
-  width: 100%;
-  background-color: #a6c740;
-  color: white;
-  padding: 3px;
-  border-radius: 5px;
-  font-family: "Space Mono", monospace;
-  font-size: 105%;
-  border: 1px solid #27235e;
+/* width: 100%;  <-- 删除这一行，或者改为 auto */
+width: auto;     /* 让宽度跟随内容自动变宽 */
+min-width: 160px; /* 设置一个最小宽度，保证美观 */
+
+background-color: #a6c740;
+color: white;
+padding: 3px;
+
+/* 增加右侧内边距，防止文字盖住下拉的小箭头 */
+padding-right: 25px; 
+
+border-radius: 5px;
+font-family: "Space Mono", monospace;
+font-size: 105%;
+border: 1px solid #27235e;
 }
 
 .block {

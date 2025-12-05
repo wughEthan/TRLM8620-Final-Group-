@@ -25,8 +25,6 @@ let Navbar = {
 
         let localeCN = i18n.getString("LocaleSelector", "localeCN"); 
         let localeNL = i18n.getString("LocaleSelector", "localeNL");
-
-
         //view is solely for HTML markup, contains no static text
         let view =
 `<header>

@@ -115,7 +115,7 @@
     },
     "LocaleSelector": {
         "localeLabel": "Locale: ",
-        "localeUS": "English(USA)",
+        "localeUS": "English (USA)",
         "localeNL": "Dutch (NLD)",
         "localeCN": "中文（简体）",
         "localeDE": "German (FRG)",
