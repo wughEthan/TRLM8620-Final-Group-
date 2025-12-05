@@ -4,7 +4,7 @@ import i18n from "../../services/i18n.js";
 class Order {
     constructor(total, newDate, number) {
         if(newDate == null) {
-            this.orderDate = new Date(); //$NON-NLS-L$
+            this.orderDate = new Date(); 
         }else {
             this.orderDate = newDate;
         }
@@ -14,34 +14,28 @@ class Order {
         else {
             this.orderNumber = number;
         }
-        
         this.total = total;
     }
 
     getOrderDate() {
-        var dd = String(this.orderDate.getDate()).padStart(2, '0');
-        var mm = String(this.orderDate.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = this.orderDate.getFullYear();
-
-        let date = mm + '/' + dd + '/' + yyyy;
-        return date;
+        return i18n.formatDate(this.orderDate);
     }
 
     //create a dummy "order status" string
     getOrderStatus() {
-        //calculate diff
-        let oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-        let now = new Date(); //$NON-NLS-L$
-        var diffDays = Math.floor(Math.abs((this.orderDate.getTime() - now.getTime())/(oneDay))); //$NON-NLS-L$
+        let oneDay = 24*60*60*1000; 
+        let now = new Date(); 
+        var diffDays = Math.floor(Math.abs((this.orderDate.getTime() - now.getTime())/(oneDay))); 
 
         if(diffDays < 2) {
             return i18n.getString("Order", "statusProcessing");
         }
         if(diffDays < 4) {
-            return i18n.getString("Order",      "statusShipped");
+            return i18n.getString("Order", "statusShipped");
         }
         else{
-            return "Delivered";
+            // [修复 2] 移除了硬编码 "Delivered"，改为从资源文件获取
+            return i18n.getString("Order", "statusDelivered");
         }
     }
 

@@ -32,8 +32,8 @@ const i18n = {
     formatCurrency: (price, color) => {
         let formatted;
         let converted = convertCurrency(price);
-        formatted = new Intl.NumberFormat(locale, { style: 'currency', currency: currencyMap[locale] }).format(converted); //$NON-NLS-L$ 
-        //return the formatted currency within template literal
+        // 使用 currencyMap 获取当前 locale 对应的货币代码
+        formatted = new Intl.NumberFormat(locale, { style: 'currency', currency: currencyMap[locale] }).format(converted); 
         return `<h4>${formatted}</h4>`
 
 
@@ -52,12 +52,10 @@ const i18n = {
 //used to determine the correct currency symbol
 var currencyMap = {
     'en-US': 'USD',
-    'zh-CN': 'CNY',
-    'nl-NL': 'EUR'
+    'zh-CN': 'CNY', 
+
 };
 
-//function to perform rough conversion from galactic credits to real currencies
-//Disabled for project
 var convertCurrency = (price) => {
     return price;
 }

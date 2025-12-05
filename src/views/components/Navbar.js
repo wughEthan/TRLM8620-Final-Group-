@@ -22,14 +22,14 @@ let Navbar = {
 
         let localeLabel = i18n.getString("LocaleSelector", "localeLabel");
         let localeUS = i18n.getString("LocaleSelector", "localeUS");
-        let localeCN = i18n.getString("LocaleSelector", "localeCN");
+
+        let localeCN = i18n.getString("LocaleSelector", "localeCN"); 
         let localeNL = i18n.getString("LocaleSelector", "localeNL");
 
 
         //view is solely for HTML markup, contains no static text
         let view =
-        `<header>
-        <!-- logo, search bar, local, profile drop down -->
+`<header>
         <section>
             <img src="img/logo.png" id="logo" alt="${logoAlt}">
         </section>
@@ -56,14 +56,12 @@ let Navbar = {
               <label for="locale"><h3>${localeLabel}</h3></label>
               <select id="locale" class="hamDrop">
                 <option value="en-US">${localeUS}</option>
-                <option value="nl-NL">${localeNL}</option>
                 <option value="zh-CN">${localeCN}</option>
               </select>
             </div>
         </section>
     </header>
     <nav>
-        <!-- nav links here -->
         <ul>
             <li><a href="./#/" class="navLink" id="">${navLinkHome}</a></li>
             <li><a href="./#/droids" class="navLink" id="droids">${navLinkDroids}</a></li>

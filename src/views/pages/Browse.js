@@ -12,33 +12,36 @@ let Browse = {
 
         let productMap = null;
 
-        let title = i18n.getString("Browse", "browseTitleAll");
+        let title = "";
 
         if(type == "droids") {
             productMap = productList.get('droids');
-            title += i18n.getString("Browse", "browseTitleDroids");
+            title = i18n.getString("Browse", "browseTitleDroids");
         }
         else if(type == "vehicles") {
             productMap = productList.get('vehicles');
-            title += i18n.getString("Browse", "browseTitleVehicles");
+            title = i18n.getString("Browse", "browseTitleVehicles");
+        }
+        else {
+            title = i18n.getString("Browse", "browseTitleAll");
         }
 
         //view is solely for HTML markup, contains no static text
         let view = `<section class="browsePage">
-                        <h1>${title}</h1>
-                        <div class="browseGrid">`;
+        <h1>${title}</h1>
+        <div class="browseGrid">`;
 
         productMap.forEach((product, key) => {
-            //create box for each product
-            view += `<article id="${key}">
-                        <img src="${product.imageURL}" class="gridImage" alt="${product.title}">
-                        <div class="gridDes">
-                            <h3>${product.title}</h3>
-                            <div class="gridPrice">
-                                ${i18n.formatCurrency(product.price, "b")}
-                            </div>
-                        </div>
-                    </article>`;
+        //create box for each product
+        view += `<article id="${key}">
+                <img src="${product.imageURL}" class="gridImage" alt="${product.title}">
+                <div class="gridDes">
+                    <h3>${product.title}</h3>
+                    <div class="gridPrice">
+                        ${i18n.formatCurrency(product.price, "b")}
+                    </div>
+                </div>
+            </article>`;
         });
                 view += `
                 </div>
@@ -49,10 +52,8 @@ let Browse = {
     after_render: async () => {
 
         let grid = document.querySelector(".browseGrid");
-
         let articles = grid.querySelectorAll("article");
 
-        //click listener to redirect on product click
         for(let curProduct of articles) {
             curProduct.addEventListener("click", function() {
                 location.href=`./#/${type}/` + curProduct.id;

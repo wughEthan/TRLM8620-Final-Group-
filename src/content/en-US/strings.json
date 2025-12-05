@@ -44,12 +44,14 @@
     },
     "Home": {
         "welcomeSubtitle": "We provide everything you need to take on the Galactization (G11n) Challenge (and win).",
-        "symbolAlt": "Imperial Credit currency symbol"
+        "symbolAlt": "Imperial Credit currency symbol",
+        "welcomeTitle": "Welcome to Galaxy L10n Supplies!", 
+        "imgAltPattern": "{0} image"
     },
     "Browse": {
-        "browseTitleAll": "All",
-        "browseTitleDroids": " droids",
-        "browseTitleVehicles": " vehicles"
+        "browseTitleAll": "All Products",
+        "browseTitleDroids": "All Droids",
+        "browseTitleVehicles": "All Vehicles"
     },
     
     "Checkout": {
@@ -95,7 +97,8 @@
     },
     "Order": {
         "statusProcessing": "Processing",
-        "statusShipped": "Shipped"
+        "statusShipped": "Shipped",
+        "statusDelivered": "Delivered"
     },
     "OrderHistory": {
         "historyTitle": "Order History",
@@ -112,9 +115,9 @@
     },
     "LocaleSelector": {
         "localeLabel": "Locale: ",
-        "localeUS": "English (USA)",
+        "localeUS": "English(USA)",
         "localeNL": "Dutch (NLD)",
-        "localeCN": "Chinese (PRC)",
+        "localeCN": "中文（简体）",
         "localeDE": "German (FRG)",
         "LocaleTW": "Chinese (TW)",
         "Locale419": "Spanish (LatAm)"  

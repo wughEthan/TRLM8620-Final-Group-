@@ -3,22 +3,20 @@ import i18n from "../../services/i18n.js";
 
 let Home = {
     render : async () => {
-        //fetch localizable strings via i18n method 'getString'
+        let welcomeTitle = i18n.getString("Home", "welcomeTitle");
         let welcomeSubtitle = i18n.getString("Home", "welcomeSubtitle");
+        let imgAltPattern = i18n.getString("Home", "imgAltPattern");
 
-        //view is solely for HTML markup, contains no static text
         let view = `
                     <section class="welcome">
-                        <h1 class="center">Welcome to Galaxy L10n Supplies!</h1>
+                        <h1 class="center">${welcomeTitle}</h1>
                         <h3 class="center white">${welcomeSubtitle}</h3>
                     </section>
                     <div class="browseGrid homeGrid">`;
 
-        //create a box to display each of the 4 featured products
         featuredProducts.forEach((product, key) => {
 
-            //string to give image an alt tag for accessibility
-            let imageAlt = product.title + " image";
+            let imageAlt = imgAltPattern.replace("{0}", product.title);
 
             view += `
                     <article id="${product.productID}" class="${product.type}">
@@ -33,14 +31,10 @@ let Home = {
         });
             
         view += "</div>";
-
-        //return generated markup
         return view
     }
     , after_render: async () => {
         let articles = document.querySelectorAll("article");
-
-        //click listener to redirect on product click
         for(let curProduct of articles) {
             curProduct.addEventListener("click", function() {
                 location.href=`./#/${curProduct.classList[0]}s/` + curProduct.id;
